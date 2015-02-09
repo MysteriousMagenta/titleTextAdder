@@ -6,6 +6,7 @@
 // @match        *
 // @grant        none
 // ==/UserScript==
+var XKCDExtra = true;
 
 function addText(image) {
     var text = image.title;
@@ -15,7 +16,12 @@ function addText(image) {
         textElement.style["font-style"] = "italic";
         textElement.style["color"] = "grey";
         textElement.innerText = text;
-        image.parentNode.insertBefore(textElement, image.nextSibling);
+        if (XKCDExtra && window.location.hostname.match("(www.)?xkcd.com")) {
+            image.parentNode.insertBefore(textElement, image);
+        }
+        else {
+            image.parentNode.insertBefore(textElement, image.nextSibling);
+        }
     }
 }
 

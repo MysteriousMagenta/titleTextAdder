@@ -13,14 +13,16 @@ function addText(image) {
         var textElement = document.createElement("p");
         textElement.style["text-align"] = "center";
         textElement.style["font-style"] = "italic";
+        textElement.style["color"] = "grey";
         textElement.innerText = text;
         image.parentNode.insertBefore(textElement, image.nextSibling);
     }
 }
 
-function execAll() {
-    for (var i=0; i < document.images.length; i++) {
-        addText(document.images[i]);
+function execAll(onlyImages) {
+    var images = document.images;
+    for (var i=0; i < images.length; i++) {
+        addText(images[i]);
     }
 }
 

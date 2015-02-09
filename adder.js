@@ -16,7 +16,7 @@ function addText(image) {
         textElement.style["font-style"] = "italic";
         textElement.style["color"] = "grey";
         textElement.innerText = text;
-        if (XKCDExtra && window.location.hostname.match("(www.)?xkcd.com")) {
+        if (XKCDExtra && window.location.hostname.match("^(www.)?xkcd.com")) {
             image.parentNode.insertBefore(textElement, image);
         }
         else {
